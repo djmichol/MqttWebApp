@@ -1,0 +1,20 @@
+{
+  "name": "mqttapp",
+  "version": "1.0.0",
+  "description": "Web app for mqtt client",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michal Podbielski",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-copy": "^1.0.0",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rev": "^7.1.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.0.8",
+    "gulp-usemin": "^0.3.28"
+  }
+}
