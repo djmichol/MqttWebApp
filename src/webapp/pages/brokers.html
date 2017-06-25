@@ -1,1 +1,30 @@
-Brokers
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <i class="fa fa-text-width"></i>
+
+                <h3 class="box-title">Mqtt brokers</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <dl>
+                    <span ng-repeat="broker in brokers.brokers">
+                        <div class="pull-left">
+                            <dt ng-bind="broker.name"></dt>
+                            <dd>
+                                <span ng-bind="broker.url" ></span>
+                            </dd>
+                        </div>
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-primary">Connect</button>
+                            <button type="button" class="btn btn-primary">Disconnect</button>
+                        </div>
+                    </span>
+                </dl>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>

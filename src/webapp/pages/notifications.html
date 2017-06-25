@@ -11,7 +11,9 @@
                 <dl>
                     <span ng-repeat="notification in notifications.notifications">
                         <dt ng-bind="notification.message"></dt>
-                        <dd ng-bind="notification.message"></dd>
+                        <dd>
+                            <span ng-bind="notification.message"></span>
+                        </dd>
                     </span>
                 </dl>
             </div>
