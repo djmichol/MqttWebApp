@@ -4,8 +4,6 @@ var uglify = require('gulp-uglify');
 var usemin = require('gulp-usemin');
 var minifyHtml = require('gulp-minify-html');
 var uglifycss = require('gulp-uglifycss');
-var ngAnnotate = require('gulp-ng-annotate')
-var gulpCopy = require('gulp-copy');
 var rev = require('gulp-rev');
 
 gulp.task('clean', function (cb) {

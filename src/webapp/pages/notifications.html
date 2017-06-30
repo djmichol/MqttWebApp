@@ -7,9 +7,9 @@
                 <h3 class="box-title">Notifications</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body" ng-init="getAllNotifications();">
                 <dl>
-                    <span ng-repeat="notification in notifications.notifications">
+                    <span ng-repeat="notification in notifications">
                         <dt ng-bind="notification.message"></dt>
                         <dd>
                             <span ng-bind="notification.message"></span>

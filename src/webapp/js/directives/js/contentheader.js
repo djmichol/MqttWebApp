@@ -1,7 +1,7 @@
-app.directive("contentHeaderDirective", function() {
+app.directive("contentHeaderDirective", function () {
     return {
-      restrict: 'E',
-      templateUrl: "view/contentHeader.html",
-      controller: "ContentHeaderController"
+        restrict: 'E',
+        templateUrl: "view/contentHeader.html",
+        controller: "ContentHeaderController"
     };
 });

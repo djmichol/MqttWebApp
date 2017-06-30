@@ -1,6 +1,6 @@
-app.directive("mainSidebarDirective", function() {
+app.directive("mainSidebarDirective", function () {
     return {
-      restrict: 'E',
-      templateUrl: "view/mainSidebar.html"
+        restrict: 'E',
+        templateUrl: "view/mainSidebar.html"
     };
 });

@@ -1,7 +1,6 @@
-app.directive("mainContentDirective", function() {
+app.directive("mainContentDirective", function () {
     return {
-      restrict: 'E',
-      templateUrl: "view/mainContent.html",
-      controller: "MainHeaderController"
+        restrict: 'E',
+        templateUrl: "view/mainContent.html"
     };
 });
