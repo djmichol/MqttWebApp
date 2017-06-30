@@ -9,8 +9,7 @@ app.controller("MainHeaderController", function ($scope, $timeout, $http, userSe
         }).then(function successCallback(response) {
             $scope.notifications = response.data;
         }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
+            console.lof("Can not get notifications!!!")
         });
         $timeout($scope.initNewNotifications, 3000);
     };

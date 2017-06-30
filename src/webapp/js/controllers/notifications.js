@@ -1,4 +1,4 @@
-app.controller("NotificationsController", function ($scope, $http) {
+app.controller("NotificationsController", function ($scope, $http, alertsService) {
 
     $scope.notifications = {};
 
@@ -9,8 +9,7 @@ app.controller("NotificationsController", function ($scope, $http) {
         }).then(function successCallback(response) {
             $scope.notifications = response.data;
         }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
+            alertsService.addAlert(response.data, "alert-danger");
         });
     };
 });

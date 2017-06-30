@@ -7,18 +7,19 @@
                 <h3 class="box-title">Mqtt brokers</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body" ng-init="getAllBrokers();">
                 <dl>
-                    <span ng-repeat="broker in brokers.brokers">
+                    <span ng-repeat="broker in brokers">
                         <div class="pull-left">
-                            <dt ng-bind="broker.name"></dt>
+                            <dt ng-bind="broker.brokerUrl"></dt>
                             <dd>
-                                <span ng-bind="broker.url" ></span>
+                                <span ng-bind="broker.brokerUser"></span>
+                                <span ng-bind="broker.connected"></span>
                             </dd>
                         </div>
                         <div class="pull-right">
-                            <button type="button" class="btn btn-primary">Connect</button>
-                            <button type="button" class="btn btn-primary">Disconnect</button>
+                            <button type="button" class="btn btn-primary" ng-click="connect(broker.brokerId);" ng-disabled="broker.connected===true">Connect</button>
+                            <button type="button" class="btn btn-primary" ng-click="disconnect(broker.disconnect);" ng-disabled="broker.connected===false">Disconnect</button>
                         </div>
                     </span>
                 </dl>
