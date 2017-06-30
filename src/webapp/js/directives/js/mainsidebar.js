@@ -1,6 +1,7 @@
 app.directive("mainSidebarDirective", function () {
     return {
         restrict: 'E',
-        templateUrl: "view/mainSidebar.html"
+        templateUrl: "view/mainSidebar.html",
+        controller: "MainSidebarController"
     };
 });

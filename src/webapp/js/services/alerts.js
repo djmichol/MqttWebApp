@@ -18,6 +18,10 @@ app.service('alertsService', function () {
             notifyObservers();
         }
     };
+    this.clearAlerts = function(){
+        alerts = [];
+        notifyObservers();
+    };
 
     this.getAlerts = function () {
         return alerts;

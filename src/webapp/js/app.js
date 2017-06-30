@@ -22,3 +22,9 @@ var app = angular.module('mqttDashboard', ["ngRoute"]).config(function ($routePr
 angular.element(function(){
     angular.bootstrap(document, ['mqttDashboard']);
 });
+
+app.run(function($rootScope, alertsService) {
+    $rootScope.$on("$locationChangeStart", function(event, next, current) {
+        alertsService.clearAlerts();
+    });
+});
