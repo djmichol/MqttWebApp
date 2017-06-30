@@ -1,4 +1,4 @@
-var app = angular.module('mqttDashboard', ["ngRoute"]).config(function ($routeProvider) {
+var app = angular.module('mqttDashboard', ["ngRoute"]).config(function ($routeProvider, $httpProvider) {
     $routeProvider.when("/home", {
         templateUrl: "view/home.html"
     })
@@ -17,6 +17,10 @@ var app = angular.module('mqttDashboard', ["ngRoute"]).config(function ($routePr
     .otherwise({
         redirectTo: "/home"
     });
+
+    //Enable cross domain calls
+    $httpProvider.defaults.useXDomain = true;
+    $httpProvider.interceptors.push('errorHttpInterceptor');
 });
 
 angular.element(function(){

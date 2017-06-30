@@ -8,30 +8,24 @@ app.controller("BrokersController", function ($scope, $http, alertsService) {
             url: 'http://10.132.221.251:8080/clients'
         }).then(function successCallback(response) {
             $scope.brokers = response.data;
-        }, function errorCallback(response) {
-            alertsService.addAlert("Get all brokers",response.data,"alert-danger");
         });
     };
 
     $scope.connect = function (brokerId) {
         $http({
-            method: 'PATCH',
+            method: 'POST',
             url: 'http://10.132.221.251:8080/clients/connect/'+brokerId
         }).then(function successCallback(response) {
             alertsService.addAlert("Connect to broker", response.data,"alert-success");
-        }, function errorCallback(response) {
-            alertsService.addAlert("Connect to broker",response.data,"alert-danger");
         });
     };
 
     $scope.disconnect = function (brokerId) {
         $http({
-            method: 'PATCH',
+            method: 'POST',
             url: 'http://10.132.221.251:8080/clients/disconnect/'+brokerId
         }).then(function successCallback(response) {
             alertsService.addAlert("Disconnect to broker",response.data,"alert-success");
-        }, function errorCallback(response) {
-            alertsService.addAlert("Disconnect to broker",response.data,"alert-danger");
         });
     };
 
