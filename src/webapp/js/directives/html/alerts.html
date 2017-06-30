@@ -2,7 +2,9 @@
     <div ng-repeat="alert in alerts">
         <div class="alert alert-dismissible" ng-class="alert.alertClass">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="removeAlert(alert)">&times;</button>
-            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+            <h4>
+                <spam ng-bind="alert.title"></spam>
+            </h4>
             <span ng-bind="alert.message"></span>
         </div>
     </div>

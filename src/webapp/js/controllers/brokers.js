@@ -9,7 +9,7 @@ app.controller("BrokersController", function ($scope, $http, alertsService) {
         }).then(function successCallback(response) {
             $scope.brokers = response.data;
         }, function errorCallback(response) {
-            alertsService.addAlert(response.data,"alert-danger");
+            alertsService.addAlert("Get all brokers",response.data,"alert-danger");
         });
     };
 
@@ -18,9 +18,9 @@ app.controller("BrokersController", function ($scope, $http, alertsService) {
             method: 'PATCH',
             url: 'http://10.132.221.251:8080/clients/connect/'+brokerId
         }).then(function successCallback(response) {
-            alertsService.addAlert(response.data,"alert-success");
+            alertsService.addAlert("Connect to broker", response.data,"alert-success");
         }, function errorCallback(response) {
-            alertsService.addAlert(response.data,"alert-danger");
+            alertsService.addAlert("Connect to broker",response.data,"alert-danger");
         });
     };
 
@@ -29,9 +29,9 @@ app.controller("BrokersController", function ($scope, $http, alertsService) {
             method: 'PATCH',
             url: 'http://10.132.221.251:8080/clients/disconnect/'+brokerId
         }).then(function successCallback(response) {
-            alertsService.addAlert(response.data,"alert-success");
+            alertsService.addAlert("Disconnect to broker",response.data,"alert-success");
         }, function errorCallback(response) {
-            alertsService.addAlert(response.data,"alert-danger");
+            alertsService.addAlert("Disconnect to broker",response.data,"alert-danger");
         });
     };
 

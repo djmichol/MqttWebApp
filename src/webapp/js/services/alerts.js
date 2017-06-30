@@ -1,8 +1,9 @@
 app.service('alertsService', function () {
     var alerts = [];
 
-    this.addAlert = function (message, alertClass) {
+    this.addAlert = function (title, message, alertClass) {
         var alert = {
+            "title" : title,
             "message": message,
             "alertClass": alertClass
         };
