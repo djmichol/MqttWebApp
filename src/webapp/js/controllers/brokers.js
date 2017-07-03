@@ -1,4 +1,4 @@
-app.controller("BrokersController", function ($scope, $http, alertsService) {
+app.controller("BrokersController", function ($scope, $http, alertsService, $uibModal) {
 
     $scope.brokers = [];
 
@@ -8,6 +8,13 @@ app.controller("BrokersController", function ($scope, $http, alertsService) {
             url: 'http://10.132.221.251:8080/clients'
         }).then(function successCallback(response) {
             $scope.brokers = response.data;
+        });
+    };
+
+    $scope.openAddBrokerModal = function () {
+        $uibModal.open({
+            templateUrl: 'view/addNewBroker.html',
+            controller: "AddNewBrokerController"
         });
     };
 
