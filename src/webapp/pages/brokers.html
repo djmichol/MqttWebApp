@@ -1,28 +1,47 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="box box-solid">
+        <div class="box box-solid" ng-init="getAllBrokers();">
             <div class="box-header with-border">
                 <i class="fa fa-text-width"></i>
 
                 <h3 class="box-title">Mqtt brokers</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body" ng-init="getAllBrokers();">
-                <dl>
-                    <span ng-repeat="broker in brokers">
-                        <div class="pull-left">
-                            <dt ng-bind="broker.brokerUrl"></dt>
-                            <dd>
-                                <span ng-bind="broker.brokerUser"></span>
-                                <span ng-bind="broker.connected"></span>
-                            </dd>
+            <div class="box-body">
+                <div ng-repeat="broker in brokers" class="col-md-12 box">
+                    <div class="box-header with-border">
+                        <i class="fa fa-text-width"></i>
+                        <h3 class="box-title" ng-bind="broker.brokerUrl"></h3>
+                    </div>
+                    <div class="box-body col-md-12">
+                        <div class="row">
+                            <div class="pull-left col-md-8">
+                                <div class="row">
+                                    <span>Broker Url: <span ng-bind="broker.brokerUrl"></span></span>
+                                </div>
+                                <div class="row">
+                                    <span>Broker user: <span ng-bind="broker.brokerUser"></span></span>
+                                </div>
+                                <div class="row">
+                                    <span>Is connected: <span ng-bind="broker.connected"></span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="pull-right">
+                                    <button type="button" class="btn btn-primary" ng-click="connect(broker.brokerId);" ng-disabled="broker.connected===true">Connect</button>
+                                    <button type="button" class="btn btn-primary" ng-click="disconnect(broker.brokerId);" ng-disabled="broker.connected===false">Disconnect
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pull-right">
-                            <button type="button" class="btn btn-primary" ng-click="connect(broker.brokerId);" ng-disabled="broker.connected===true">Connect</button>
-                            <button type="button" class="btn btn-primary" ng-click="disconnect(broker.brokerId);" ng-disabled="broker.connected===false">Disconnect</button>
+                        <div class="row">
+                            <h4>Topics in broker</h4>
                         </div>
-                    </span>
-                </dl>
+                        <div class="row">
+                            <topic-directive topics="broker.topics"></topic-directive>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.box-body -->
         </div>

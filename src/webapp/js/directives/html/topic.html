@@ -1,0 +1,28 @@
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Broker topics</h3>
+    </div>
+    <div class="box-body no-padding">
+        <table class="table table-striped">
+            <tr>
+                <th>Topic</th>
+                <th>Callback</th>
+                <th>Subscribed</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="topic in topics">
+                <td ng-bind="topic.topic"></td>
+                <td ng-bind="topic.topicCallback"></td>
+                <td ng-bind="topic.subscribed"></td>
+                <td>
+                    <button type="button" class="btn btn-primary" ng-click="subscribe(topic.brokerId, topic.topic);" ng-disabled="topic.subscribed===true">
+                        Subscribe
+                    </button>
+                    <button type="button" class="btn btn-primary" ng-click="unsubscribe(topic.brokerId, topic.topic);" ng-disabled="topic.subscribed===false">
+                        UnSubscribe
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

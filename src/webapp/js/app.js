@@ -6,10 +6,6 @@ var app = angular.module('mqttDashboard', ["ngRoute", "ui.bootstrap"]).config(fu
         templateUrl: "view/brokers.html",
         controller: "BrokersController"
     })
-    .when("/topics", {
-        templateUrl: "view/topics.html",
-        controller: "TopicsController"
-    })
     .when("/notifications", {
         templateUrl: "view/notifications.html",
         controller: "NotificationsController"
