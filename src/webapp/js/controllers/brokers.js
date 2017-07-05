@@ -22,25 +22,19 @@ app.controller("BrokersController", function ($scope, $http, alertsService, $uib
         $http({
             method: 'POST',
             url: 'http://10.132.221.251:8080/clients/connect/'+brokerId,
-            transformResponse: [function (data) {
-                return data;
-            }]
         }).then(function successCallback(response) {
             $scope.getAllBrokers();
-            alertsService.addAlert("Connect to broker", response.data,"alert-success");
+            alertsService.addAlert("Connect to broker", response.data.message,"alert-success");
         });
     };
 
     $scope.disconnect = function (brokerId) {
         $http({
             method: 'POST',
-            url: 'http://10.132.221.251:8080/clients/disconnect/'+brokerId,
-            transformResponse: [function (data) {
-                return data;
-            }]
+            url: 'http://10.132.221.251:8080/clients/disconnect/'+brokerId
         }).then(function successCallback(response) {
             $scope.getAllBrokers();
-            alertsService.addAlert("Disconnect to broker",response.data,"alert-success");
+            alertsService.addAlert("Disconnect to broker",response.data.message,"alert-success");
         });
     };
 
