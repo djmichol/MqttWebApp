@@ -8,8 +8,6 @@ app.controller("NotificationsController", function ($scope, $http, alertsService
             url: 'http://10.132.221.251:8080/notifications'
         }).then(function successCallback(response) {
             $scope.notifications = response.data;
-        }, function errorCallback(response) {
-            alertsService.addAlert(response.data, "alert-danger");
         });
     };
 });

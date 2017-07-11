@@ -18,6 +18,16 @@ app.controller("BrokersController", function ($scope, $http, alertsService, $uib
         });
     };
 
+    $scope.openAddTopicModal = function (brokerID) {
+        $uibModal.open({
+            templateUrl: 'view/addTopic.html',
+            controller: "AddTopicController",
+            resolve: {
+                brokerId: brokerID
+            }
+        });
+    };
+
     $scope.connect = function (brokerId) {
         $http({
             method: 'POST',

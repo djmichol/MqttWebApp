@@ -14,6 +14,22 @@ var app = angular.module('mqttDashboard', ["ngRoute", "ui.bootstrap"]).config(fu
         templateUrl: "view/sensorData.html",
         controller: "SensorDataController"
     })
+    .when("/places", {
+        templateUrl: "view/places.html",
+        controller: "PlacesController"
+    })
+    .when("/dictionary", {
+        templateUrl: "view/dictionaries.html",
+        controller: "DictionariesController"
+    })
+    .when("/dictionary/:code", {
+        templateUrl: "view/dictionaryDetails.html",
+        controller: "DictionaryDetailsController"
+    })
+    .when("/topics", {
+        templateUrl: "view/topics.html",
+        controller: "TopicsController"
+    })
     .otherwise({
         redirectTo: "/home"
     });

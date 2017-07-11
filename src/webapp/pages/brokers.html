@@ -1,26 +1,24 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="box box-solid" ng-init="getAllBrokers();">
+        <div class="box box-default" ng-init="getAllBrokers();">
             <div class="box-header with-border">
                 <h3 class="box-title">Mqtt brokers</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <div ng-repeat="broker in brokers" class="col-md-12 box">
+                <div ng-repeat="broker in brokers" class="col-md-12 box box-info">
                     <div class="box-header with-border">
                         <h3 class="box-title" ng-bind="broker.brokerUrl"></h3>
                     </div>
                     <div class="box-body col-md-12">
                         <div class="row">
                             <div class="pull-left col-md-8">
-                                <div class="row">
-                                    <span>Broker Url: <span ng-bind="broker.brokerUrl"></span></span>
-                                </div>
-                                <div class="row">
+                                <div class="col-md-8">
                                     <span>Broker user: <span ng-bind="broker.brokerUser"></span></span>
                                 </div>
-                                <div class="row">
-                                    <span>Is connected: <span ng-bind="broker.connected"></span></span>
+                                <div class="col-md-4">
+                                    <span>Connected: <span class="label" ng-class="{'label-success': broker.connected, 'label-danger': !broker.connected}"
+                                                           ng-bind="broker.connected"></span></span>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -36,6 +34,7 @@
                         </div>
                         <div class="row">
                             <topic-directive topics="broker.topics"></topic-directive>
+                            <button type="button" class="btn btn-primary pull-right" ng-click="openAddTopicModal(broker.brokerId);">Add topic</button>
                         </div>
                     </div>
                 </div>

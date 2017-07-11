@@ -1,8 +1,8 @@
 app.controller("AddNewBrokerController", function ($scope, $http, $uibModalInstance) {
 
     $scope.brokerUrl;
-    $scope.user;
-    $scope.password;
+    $scope.brokerUser;
+    $scope.brokerPassword;
 
     $scope.addBroker = function () {
         $http({
@@ -10,8 +10,8 @@ app.controller("AddNewBrokerController", function ($scope, $http, $uibModalInsta
             url: 'http://10.132.221.251:8080/clients',
             data: {
                 "url": $scope.brokerUrl,
-                "user": $scope.user,
-                "password": $scope.password
+                "user": $scope.brokerUser,
+                "password": $scope.brokerPassword
             }
         }).then(function successCallback(response) {
             $scope.brokers = response.data;

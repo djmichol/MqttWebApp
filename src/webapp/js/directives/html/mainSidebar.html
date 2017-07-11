@@ -2,9 +2,21 @@
     <section class="sidebar">
         <ul class="sidebar-menu">
             <li class="header">Navigation</li>
-            <li ng-class="getClass('/home')"><a href="#!home"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-            <li ng-class="getClass('/brokers')"><a href="#!brokers"><i class="fa fa-link"></i> <span>Brokers</span></a></li>
-            <li ng-class="getClass('/sensorData')"><a href="#!sensorData"><i class="fa fa-link"></i> <span>Sensors data</span></a></li>
+            <li ng-class="getClass('/home')"><a href="#!home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li ng-class="getClass('/brokers')"><a href="#!brokers"><i class="fa fa-laptop"></i> <span>Brokers</span></a></li>
+            <li ng-class="getClass('/sensorData')"><a href="#!sensorData"><i class="fa fa-newspaper-o"></i> <span>Sensors data</span></a></li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa  fa-cog"></i> <span>Configuration</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li ng-class="getClass('/sensorData')"><a href="#!places"><i class="fa fa-home"></i> Places</a></li>
+                    <li ng-class="getClass('/dictionary')"><a href="#!dictionary"><i class="fa fa-book"></i> Dictionaries</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
 </aside>
