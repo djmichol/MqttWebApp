@@ -10,6 +10,10 @@ var app = angular.module('mqttDashboard', ["ngRoute", "ui.bootstrap"]).config(fu
         templateUrl: "view/notifications.html",
         controller: "NotificationsController"
     })
+    .when("/sensorData", {
+        templateUrl: "view/sensorData.html",
+        controller: "SensorDataController"
+    })
     .otherwise({
         redirectTo: "/home"
     });

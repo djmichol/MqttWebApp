@@ -8,14 +8,24 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body" ng-init="getAllNotifications();">
-                <dl>
-                    <span ng-repeat="notification in notifications">
-                        <dt ng-bind="notification.message"></dt>
-                        <dd>
-                            <span ng-bind="notification.message"></span>
-                        </dd>
-                    </span>
-                </dl>
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="notification in notifications">
+                            <td ng-bind="notification.topic"></td>
+                            <td ng-bind="notification.message"></td>
+                            <td ng-bind="notification.dataTimestamp"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!-- /.box-body -->
         </div>
