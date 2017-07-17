@@ -9,18 +9,22 @@
                 <th>Callback</th>
                 <th>Subscribed</th>
                 <th>Actions</th>
+                <th></th>
             </tr>
             <tr ng-repeat="topic in topics">
                 <td ng-bind="topic.topic"></td>
                 <td ng-bind="topic.topicCallback"></td>
                 <td ng-bind="topic.subscribed"></td>
                 <td>
-                    <button type="button" class="btn btn-primary" ng-click="subscribe(topic.brokerId, topic.topic);" ng-disabled="topic.subscribed===true">
+                    <button type="button" class="btn btn-primary" ng-click="subscribe(topic.brokerId, topic.topic, topic.topicCallback);" ng-disabled="topic.subscribed===true">
                         Subscribe
                     </button>
-                    <button type="button" class="btn btn-primary" ng-click="unsubscribe(topic.brokerId, topic.topic);" ng-disabled="topic.subscribed===false">
+                    <button type="button" class="btn btn-primary" ng-click="unsubscribe(topic.brokerId, topic.topic, topic.topicCallback);" ng-disabled="topic.subscribed===false">
                         UnSubscribe
                     </button>
+                </td>
+                <td>
+                    <button type="button" class="btn fa-trash" ng-click="removeTopic(topic.brokerId, topic.topic, topic.topicCallback);" />
                 </td>
             </tr>
         </table>

@@ -19,12 +19,19 @@ app.controller("BrokersController", function ($scope, $http, alertsService, $uib
     };
 
     $scope.openAddTopicModal = function (brokerID) {
-        $uibModal.open({
+        var modalInstance = $uibModal.open({
             templateUrl: 'view/addTopic.html',
             controller: "AddTopicController",
             resolve: {
                 brokerId: brokerID
             }
+        });
+
+        modalInstance.result.then(function (newTopic) {
+            var changedItem = $scope.brokers.filter(function(item) {
+                return item.brokerId === newTopic.brokerId;
+            })[0];
+            changedItem.topics.push(newTopic);
         });
     };
 

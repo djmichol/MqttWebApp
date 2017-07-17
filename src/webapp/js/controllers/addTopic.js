@@ -2,7 +2,7 @@ app.controller("AddTopicController", function ($scope, $http, $uibModalInstance,
 
     $scope.topics;
     $scope.callbacks;
-
+    $scope.newTopic;
 
     $scope.init = function () {
         $http({
@@ -32,14 +32,14 @@ app.controller("AddTopicController", function ($scope, $http, $uibModalInstance,
                 "topicCallback": callback
             }
         }).then(function successCallback(response) {
-            //TODO odswierzyc broker
-            alertsService.addAlert("Add topic",response.data.message,"alert-success");
+            $scope.newTopic = response.data;
+            alertsService.addAlert("Add topic","Success!!!","alert-success");
+            $uibModalInstance.close($scope.newTopic);
         });
-    }
+    };
 
     $scope.ok = function () {
         $scope.addTopicToBroker();
-        $uibModalInstance.close();
     };
 
     $scope.cancel = function () {
