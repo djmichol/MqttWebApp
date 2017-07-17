@@ -1,1 +1,18 @@
-HOME
+<div ng-init="getData();">
+    <div class="col-lg-3 col-xs-6" ng-repeat="data in sensorData">
+        <!-- small box -->
+        <div class="small-box" ng-class="{'bg-green': data.dataType==='temperature', 'bg-aqua': data.dataType==='humidity'}">
+            <div class="inner">
+                <h3>
+                    <span ng-bind="data.sensorData"></span>
+                    <sup style="font-size: 20px" ng-bind="data.dataType==='temperature' ? '&#8451;' : data.dataType==='humidity' ? '%' :''"></sup></h3>
+                <h4 ng-bind="data.dataRoom"></h4>
+                <p ng-bind="data.dataType"></p>
+                <p ng-bind="data.dataTimestamp"></p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+        </div>
+    </div>
+</div>
