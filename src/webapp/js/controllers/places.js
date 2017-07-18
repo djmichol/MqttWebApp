@@ -1,8 +1,10 @@
-app.controller("PlacesController", function ($scope, $http, alertsService) {
+app.controller("PlacesController", function ($scope, $http, alertsService, contentHeader) {
 
     $scope.place = "";
     $scope.room = "";
     $scope.places;
+
+    contentHeader.setHeader("Places", "Define places where sensors is");
 
     $scope.getPlaces = function () {
         $http({

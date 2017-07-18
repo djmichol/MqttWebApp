@@ -1,7 +1,9 @@
-app.controller("DictionaryDetailsController", function ($scope, $http,$routeParams) {
+app.controller("DictionaryDetailsController", function ($scope, $http,$routeParams, contentHeader) {
 
     $scope.value;
     $scope.dictionary;
+
+    contentHeader.setHeader("Dictionary details", "Details of "+$routeParams.code+" dictionary");
 
     $scope.getDictionaryByCode = function () {
         var code = $routeParams.code;

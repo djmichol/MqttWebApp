@@ -1,6 +1,8 @@
-app.controller("BrokersController", function ($scope, $http, alertsService, $uibModal) {
+app.controller("BrokersController", function ($scope, $http, alertsService, $uibModal, contentHeader) {
 
     $scope.brokers = [];
+
+    contentHeader.setHeader("Brokers", "Yours mqtt brokers list");
 
     $scope.getAllBrokers = function () {
         $http({

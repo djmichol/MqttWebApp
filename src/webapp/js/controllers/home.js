@@ -1,5 +1,7 @@
-app.controller("HomeController", function ($scope, $http) {
+app.controller("HomeController", function ($scope, $http, contentHeader) {
     $scope.sensorData = [];
+
+    contentHeader.setHeader("Dashboard", "");
 
     $scope.getData = function () {
         $http({

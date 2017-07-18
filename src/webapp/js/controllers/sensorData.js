@@ -1,8 +1,10 @@
-app.controller("SensorDataController", function ($scope, $http, alertsService) {
+app.controller("SensorDataController", function ($scope, $http, alertsService, contentHeader) {
 
     $scope.topic = "";
     $scope.dataType = "";
     $scope.sensorData = {};
+
+    contentHeader.setHeader("Sensors data", "Filter data from all sensors");
 
     $scope.getAllSensorData = function () {
         var url = "http://10.132.221.251:8080/sensorsData";

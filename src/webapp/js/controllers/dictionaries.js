@@ -1,7 +1,9 @@
-app.controller("DictionariesController", function ($scope, $http, $location) {
+app.controller("DictionariesController", function ($scope, $http, $location, contentHeader) {
 
     $scope.code;
     $scope.dictionaries;
+
+    contentHeader.setHeader("Dictionaries", "Dictionaries to keep data");
 
     $scope.getAllDictionaries = function () {
         $http({
