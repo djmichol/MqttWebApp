@@ -8,7 +8,7 @@ app.controller("DictionariesController", function ($scope, $http, $location, con
     $scope.getAllDictionaries = function () {
         $http({
             method: 'GET',
-            url: "http://10.132.221.251:8080/dictionary"
+            url: "/dictionary"
         }).then(function successCallback(response) {
             $scope.dictionaries = response.data;
         });
@@ -21,7 +21,7 @@ app.controller("DictionariesController", function ($scope, $http, $location, con
     $scope.search = function(){
         $http({
             method: 'GET',
-            url: "http://10.132.221.251:8080/dictionary/"+$scope.code
+            url: "/dictionary/"+$scope.code
         }).then(function successCallback(response) {
             var dictionaries = [];
             dictionaries.push(response.data);

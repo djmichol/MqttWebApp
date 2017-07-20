@@ -7,13 +7,13 @@ app.controller("AddTopicController", function ($scope, $http, $uibModalInstance,
     $scope.init = function () {
         $http({
             method: 'GET',
-            url: "http://10.132.221.251:8080/dictionary/TOPICS"
+            url: "/dictionary/TOPICS"
         }).then(function successCallback(response) {
             $scope.topics = response.data.dictionaryValues;
         });
         $http({
             method: 'GET',
-            url: "http://10.132.221.251:8080/dictionary/CALLBACKS"
+            url: "/dictionary/CALLBACKS"
         }).then(function successCallback(response) {
             $scope.callbacks = response.data.dictionaryValues;
         });
@@ -25,7 +25,7 @@ app.controller("AddTopicController", function ($scope, $http, $uibModalInstance,
 
         $http({
             method: 'POST',
-            url: "http://10.132.221.251:8080/topics",
+            url: "/topics",
             data:{
                 "brokerId": brokerId,
                 "topic": topic,

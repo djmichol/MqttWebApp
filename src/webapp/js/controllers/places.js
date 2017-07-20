@@ -9,7 +9,7 @@ app.controller("PlacesController", function ($scope, $http, alertsService, conte
     $scope.getPlaces = function () {
         $http({
             method: 'GET',
-            url: "http://10.132.221.251:8080/place"
+            url: "/place"
         }).then(function successCallback(response) {
             $scope.places = response.data;
         });
@@ -18,7 +18,7 @@ app.controller("PlacesController", function ($scope, $http, alertsService, conte
     $scope.addPlace = function () {
         $http({
             method: 'POST',
-            url: "http://10.132.221.251:8080/place",
+            url: "/place",
             data: {
                 "place": $scope.place,
                 "room": $scope.room

@@ -9,7 +9,7 @@ app.controller("DictionaryDetailsController", function ($scope, $http,$routePara
         var code = $routeParams.code;
         $http({
             method: 'GET',
-            url: "http://10.132.221.251:8080/dictionary/"+code
+            url: "/dictionary/"+code
         }).then(function successCallback(response) {
             $scope.dictionary = response.data;
         });
@@ -18,7 +18,7 @@ app.controller("DictionaryDetailsController", function ($scope, $http,$routePara
     $scope.addValue = function(){
         $http({
             method: 'POST',
-            url: "http://10.132.221.251:8080/dictionary/value",
+            url: "/dictionary/value",
             data:{
                 dictionaryCode:$scope.dictionary.dictionaryCode,
                 value: $scope.value

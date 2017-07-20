@@ -5,7 +5,7 @@ app.controller("MainHeaderController", function ($scope, $timeout, $http, userSe
     $scope.initNewNotifications = function () {
         $http({
             method: 'GET',
-            url: 'http://10.132.221.251:8080/notifications',
+            url: '/notifications',
             params: {read: false}
         }).then(function successCallback(response) {
             $scope.notifications = response.data;

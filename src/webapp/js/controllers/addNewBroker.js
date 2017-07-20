@@ -7,7 +7,7 @@ app.controller("AddNewBrokerController", function ($scope, $http, $uibModalInsta
     $scope.addBroker = function () {
         $http({
             method: 'POST',
-            url: 'http://10.132.221.251:8080/clients',
+            url: '/clients',
             data: {
                 "url": $scope.brokerUrl,
                 "user": $scope.brokerUser,

@@ -38,6 +38,7 @@ var app = angular.module('mqttDashboard', ["ngRoute", "ui.bootstrap"]).config(fu
     //Enable cross domain calls
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.interceptors.push('errorHttpInterceptor');
+    $httpProvider.interceptors.push('requestInterceptor');
 });
 
 angular.element(function(){

@@ -5,7 +5,7 @@ app.controller("NotificationsController", function ($scope, $http) {
     var getAllNotifications = function () {
         $http({
             method: 'GET',
-            url: 'http://10.132.221.251:8080/notifications',
+            url: '/notifications',
             params: {read: true}
         }).then(function successCallback(response) {
             $scope.notifications = response.data;
@@ -22,7 +22,7 @@ app.controller("NotificationsController", function ($scope, $http) {
         if(notificationsIds.length > 0) {
             $http({
                 method: 'POST',
-                url: 'http://10.132.221.251:8080/notifications',
+                url: '/notifications',
                 params: {notificationIds: notificationsIds}
             });
         }

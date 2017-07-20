@@ -5,7 +5,7 @@ app.controller("TopicsController", function ($scope, $http, alertsService) {
     $scope.subscribe = function (brokerId, topic, callback) {
         $http({
             method: 'POST',
-            url: 'http://10.132.221.251:8080/topics/subscribe',
+            url: '/topics/subscribe',
             data: {
                 "brokerId": brokerId,
                 "topic": topic,
@@ -20,7 +20,7 @@ app.controller("TopicsController", function ($scope, $http, alertsService) {
     $scope.unsubscribe = function (brokerId, topic, callback) {
         $http({
             method: 'POST',
-            url: 'http://10.132.221.251:8080/topics/unsubscribe',
+            url: '/topics/unsubscribe',
             data: {
                 "brokerId": brokerId,
                 "topic": topic,
@@ -42,7 +42,7 @@ app.controller("TopicsController", function ($scope, $http, alertsService) {
     $scope.removeTopic = function (brokerId, topic, callback) {
         $http({
             method: 'DELETE',
-            url: 'http://10.132.221.251:8080/topics',
+            url: '/topics',
             data: {
                 "brokerId": brokerId,
                 "topic": topic,

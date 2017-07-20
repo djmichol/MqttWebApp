@@ -7,7 +7,7 @@ app.controller("BrokersController", function ($scope, $http, alertsService, $uib
     $scope.getAllBrokers = function () {
         $http({
             method: 'GET',
-            url: 'http://10.132.221.251:8080/clients'
+            url: '/clients'
         }).then(function successCallback(response) {
             $scope.brokers = response.data;
         });
@@ -40,7 +40,7 @@ app.controller("BrokersController", function ($scope, $http, alertsService, $uib
     $scope.connect = function (brokerId) {
         $http({
             method: 'POST',
-            url: 'http://10.132.221.251:8080/clients/connect/'+brokerId,
+            url: '/clients/connect/'+brokerId,
         }).then(function successCallback(response) {
             $scope.getAllBrokers();
             alertsService.addAlert("Connect to broker", response.data.message,"alert-success");
@@ -50,7 +50,7 @@ app.controller("BrokersController", function ($scope, $http, alertsService, $uib
     $scope.disconnect = function (brokerId) {
         $http({
             method: 'POST',
-            url: 'http://10.132.221.251:8080/clients/disconnect/'+brokerId
+            url: '/clients/disconnect/'+brokerId
         }).then(function successCallback(response) {
             $scope.getAllBrokers();
             alertsService.addAlert("Disconnect to broker",response.data.message,"alert-success");
