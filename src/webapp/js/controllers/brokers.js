@@ -7,7 +7,7 @@ app.controller("BrokersController", function ($scope, $http, alertsService, $uib
     $scope.getAllBrokers = function () {
         $http({
             method: 'GET',
-            url: '/clients'
+            url: '/brokers'
         }).then(function successCallback(response) {
             $scope.brokers = response.data;
         });
@@ -17,23 +17,6 @@ app.controller("BrokersController", function ($scope, $http, alertsService, $uib
         $uibModal.open({
             templateUrl: 'view/addNewBroker.html',
             controller: "AddNewBrokerController"
-        });
-    };
-
-    $scope.openAddTopicModal = function (brokerID) {
-        var modalInstance = $uibModal.open({
-            templateUrl: 'view/addTopic.html',
-            controller: "AddTopicController",
-            resolve: {
-                brokerId: brokerID
-            }
-        });
-
-        modalInstance.result.then(function (newTopic) {
-            var changedItem = $scope.brokers.filter(function(item) {
-                return item.brokerId === newTopic.brokerId;
-            })[0];
-            changedItem.topics.push(newTopic);
         });
     };
 

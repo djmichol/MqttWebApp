@@ -1,0 +1,28 @@
+<div class="box box-default">
+    <div class="box-header with-border">
+        <i class="fa fa-laptop"></i>
+        <h3 class="box-title">Send messages</h3>
+    </div>
+    <div class="box-body" ng-init="getAllSendMessages();">
+        <div class="table-responsive">
+            <table class="table no-margin">
+                <thead>
+                <tr>
+                    <th>Message</th>
+                    <th>Topic</th>
+                    <th>Broker</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="message in messages">
+                    <td ng-bind="message.message"></td>
+                    <td ng-bind="message.topic"></td>
+                    <td ng-bind="message.brokerName"></td>
+                    <td ng-bind="message.dataTimestamp"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

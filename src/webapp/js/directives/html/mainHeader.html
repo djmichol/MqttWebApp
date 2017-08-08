@@ -13,25 +13,6 @@
         </a>
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <!-- Notifications Menu -->
-                <li class="dropdown notifications-menu" ng-init="initNewNotifications();">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-bell-o"></i>
-                        <span class="label label-warning" ng-bind="notifications.length"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">You have {{notifications.length}} notifications</li>
-                        <li>
-                            <ul class="menu">
-                                <li ng-repeat="notification in notifications"><!-- start notification -->
-                                    <i class="fa fa-users text-aqua"></i><span ng-bind="notification.message"></span>
-                                </li>
-                                <!-- end notification -->
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#!notifications">View all</a></li>
-                    </ul>
-                </li>
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

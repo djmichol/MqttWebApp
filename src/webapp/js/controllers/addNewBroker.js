@@ -3,15 +3,17 @@ app.controller("AddNewBrokerController", function ($scope, $http, $uibModalInsta
     $scope.brokerUrl;
     $scope.brokerUser;
     $scope.brokerPassword;
+    $scope.brokerName;
 
     $scope.addBroker = function () {
         $http({
             method: 'POST',
-            url: '/clients',
+            url: '/brokers',
             data: {
                 "url": $scope.brokerUrl,
                 "user": $scope.brokerUser,
-                "password": $scope.brokerPassword
+                "password": $scope.brokerPassword,
+                "name":  $scope.brokerName
             }
         }).then(function successCallback(response) {
             $scope.brokers = response.data;

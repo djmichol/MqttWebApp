@@ -1,0 +1,30 @@
+<div class="box box-default">
+    <div class="box-header with-border">
+        <i class="fa fa-laptop"></i>
+        <h3 class="box-title">Nodes</h3>
+    </div>
+    <div class="box-body" ng-init="getAllSensors();">
+        <div class="table-responsive">
+            <table class="table no-margin">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Room</th>
+                    <th>Topic</th>
+                    <th>Node</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="sensor in sensors" ng-click="goToSensorDetails(sensor.id);" style="cursor: pointer;">
+                    <td ng-bind="sensor.name"></td>
+                    <td ng-bind="sensor.type"></td>
+                    <td ng-bind="sensor.room.room"></td>
+                    <td ng-bind="sensor.topic"></td>
+                    <td ng-bind="sensor.nodeName"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

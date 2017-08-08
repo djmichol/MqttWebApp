@@ -1,0 +1,28 @@
+<div class="box box-default">
+    <div class="box-header with-border">
+        <i class="fa fa-laptop"></i>
+        <h3 class="box-title">Nodes</h3>
+    </div>
+    <div class="box-body" ng-init="getAllNodes();">
+        <div class="table-responsive">
+            <table class="table no-margin">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Broker</th>
+                    <th>Status</th>
+                    <th>URL</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="node in nodes" ng-click="goToNodeDetails(node.id);" style="cursor: pointer;">
+                    <td ng-bind="node.name"></td>
+                    <td ng-bind="node.brokerName"></td>
+                    <td ng-bind="node.status"></td>
+                    <td ng-bind="node.url"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

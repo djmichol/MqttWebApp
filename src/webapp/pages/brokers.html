@@ -1,49 +1,42 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="box box-default" ng-init="getAllBrokers();">
-            <div class="box-header with-border">
-                <h3 class="box-title">Mqtt brokers</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <div ng-repeat="broker in brokers" class="col-md-12 box box-info">
-                    <div class="box-header with-border">
-                        <h3 class="box-title" ng-bind="broker.brokerUrl"></h3>
-                    </div>
-                    <div class="box-body col-md-12">
-                        <div class="row">
-                            <div class="pull-left col-md-8">
-                                <div class="col-md-8">
-                                    <span>Broker user: <span ng-bind="broker.brokerUser"></span></span>
-                                </div>
-                                <div class="col-md-4">
-                                    <span>Connected: <span class="label" ng-class="{'label-success': broker.connected, 'label-danger': !broker.connected}"
-                                                           ng-bind="broker.connected"></span></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pull-right">
-                                    <button type="button" class="btn btn-primary" ng-click="connect(broker.brokerId);" ng-disabled="broker.connected===true">Connect</button>
-                                    <button type="button" class="btn btn-primary" ng-click="disconnect(broker.brokerId);" ng-disabled="broker.connected===false">Disconnect
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h4>Topics in broker</h4>
-                        </div>
-                        <div class="row">
-                            <topic-directive topics="broker.topics"></topic-directive>
-                            <button type="button" class="btn btn-primary pull-right" ng-click="openAddTopicModal(broker.brokerId);">Add topic</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
+<div class="box box-default">
+    <div class="box-header with-border">
+        <i class="fa fa-laptop"></i>
+        <h3 class="box-title">Nodes</h3>
     </div>
-    <div class="col-md-12">
-        <button type="button" class="btn btn-primary pull-right" ng-click="openAddBrokerModal();">Add new broker</button>
+    <div class="box-body" ng-init="getAllBrokers();">
+        <div class="table-responsive">
+            <table class="table no-margin">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>URL</th>
+                    <th>Status</th>
+                    <th>Status Since</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="broker in brokers" ng-click="goToBrokerDetails(broker.id);" style="cursor: pointer;">
+                    <td ng-bind="broker.name"></td>
+                    <td ng-bind="broker.brokerUrl"></td>
+                    <td ng-bind="broker.status"></td>
+                    <td ng-bind="broker.statusSince"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="box-footer">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary pull-right" ng-click="openAddBrokerModal();">Add new broker</button>
+        </div>
     </div>
 </div>
+
+
+<!--<div class="col-md-4">
+    <div class="pull-right">
+        <button type="button" class="btn btn-primary" ng-click="connect(broker.brokerId);" ng-disabled="broker.connected===true">Connect</button>
+        <button type="button" class="btn btn-primary" ng-click="disconnect(broker.brokerId);" ng-disabled="broker.connected===false">Disconnect
+        </button>
+    </div>
+</div> -->

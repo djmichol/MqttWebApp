@@ -1,32 +1,15 @@
-app.controller("PlacesController", function ($scope, $http, alertsService, contentHeader) {
+app.controller("PlacesController", function ($scope, $http, contentHeader) {
 
-    $scope.place = "";
-    $scope.room = "";
-    $scope.places;
+    $scope.rooms;
 
-    contentHeader.setHeader("Places", "Define places where sensors is");
+    contentHeader.setHeader("Rooms", "Define rooms where sensors is");
 
     $scope.getPlaces = function () {
         $http({
             method: 'GET',
-            url: "/place"
+            url: "/room"
         }).then(function successCallback(response) {
-            $scope.places = response.data;
+            $scope.rooms = response.data;
         });
     };
-
-    $scope.addPlace = function () {
-        $http({
-            method: 'POST',
-            url: "/place",
-            data: {
-                "place": $scope.place,
-                "room": $scope.room
-            }
-        }).then(function successCallback(response) {
-            $scope.getPlaces();
-            alertsService.addAlert("Add new place", response.data.message,"alert-success");
-        });
-    };
-
 });

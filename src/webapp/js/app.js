@@ -7,9 +7,13 @@ var app = angular.module('mqttDashboard', ["ngRoute", "ui.bootstrap"]).config(fu
         templateUrl: "view/brokers.html",
         controller: "BrokersController"
     })
-    .when("/notifications", {
-        templateUrl: "view/notifications.html",
-        controller: "NotificationsController"
+    .when("/nodes", {
+        templateUrl: "view/nodes.html",
+        controller: "NodesController"
+    })
+    .when("/sensors", {
+        templateUrl: "view/sensors.html",
+        controller: "SensorsController"
     })
     .when("/sensorData", {
         templateUrl: "view/sensorData.html",
@@ -19,6 +23,14 @@ var app = angular.module('mqttDashboard', ["ngRoute", "ui.bootstrap"]).config(fu
         templateUrl: "view/places.html",
         controller: "PlacesController"
     })
+    .when("/receivedMessages", {
+        templateUrl: "view/receivedMessages.html",
+        controller: "MessagesController"
+    })
+    .when("/sendMessages", {
+        templateUrl: "view/sendMessages.html",
+        controller: "MessagesController"
+    })
     .when("/dictionary", {
         templateUrl: "view/dictionaries.html",
         controller: "DictionariesController"
@@ -26,10 +38,6 @@ var app = angular.module('mqttDashboard', ["ngRoute", "ui.bootstrap"]).config(fu
     .when("/dictionary/:code", {
         templateUrl: "view/dictionaryDetails.html",
         controller: "DictionaryDetailsController"
-    })
-    .when("/topics", {
-        templateUrl: "view/topics.html",
-        controller: "TopicsController"
     })
     .otherwise({
         redirectTo: "/home"
